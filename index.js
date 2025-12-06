@@ -35,13 +35,21 @@ function addGamesToPage(games) {
         gameCard.classList.add('game-card'); // add the class game-card to the list
 
         // set the inner HTML using a template literal to display some info
-        gameCard.innerHTML = `<img class="game-img" src="${games[i].img}"/>`;
+        gameCard.innerHTML = `
+        <img class="game-img" src="${games[i].img}" />
+        <p class="name">${games[i].name}</p>
+        <p class="description">${games[i].description}</p>
+        <p class="backers">Backers: ${games[i].backers}</p>
+        `;
 
         gamesContainer.appendChild(gameCard); // append the game to the games-container
     }
 }
 
 // call the function we just defined using the correct variable
+addGamesToPage(GAMES_JSON);
+
+
 // later, we'll call this function using a different list of games
 
 
