@@ -53,7 +53,7 @@ addGamesToPage(GAMES_JSON);
 // later, we'll call this function using a different list of games
 
 
-/*************************************************************************************
+/************************************************************************************* BEGINNING OF CHALLENGE 4 PROPERTY
  * Challenge 4: Create the summary statistics at the top of the page displaying the
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: arrow functions, reduce, template literals
@@ -64,21 +64,30 @@ const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
 
+const totalContributions = GAMES_JSON.reduce(
+    (acc, backer) => {return acc + backer.backers},0);
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
 
+contributionsCard.innerHTML= `${totalContributions.toLocaleString('en-US')}`;
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 
+const totalRaised = GAMES_JSON.reduce(
+    (acc,raisedAmount) => {return acc + raisedAmount.pledged},0);
+
 // set inner HTML using template literal
 
+raisedCard.innerHTML=`$${totalRaised.toLocaleString('en-US')}`;
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
 
+gamesCard.innerHTML = `${GAMES_JSON.length}`
 
-/*************************************************************************************
+
+/*************************************************************************************   END OF CHALLENGE 4 PROPERTY
  * Challenge 5: Add functions to filter the funded and unfunded games
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
