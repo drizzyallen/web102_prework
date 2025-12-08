@@ -150,12 +150,18 @@ const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
 
+const totalUnfunded = GAMES_JSON.filter(
+    (unfunded) => {return unfunded.pledged < unfunded.goal;}
+).length;
 
 // create a string that explains the number of unfunded games using the ternary operator
 
+const Str = `A total of $${totalRaised.toLocaleString('en-US')} has been raised for ${GAMES_JSON.length} games. Currently, ${totalUnfunded} ${totalUnfunded > 1 ? "games": "game"} ${totalUnfunded > 1 ? "remain": "remains"} unfunded. We need your help to fund these amazing ${totalUnfunded > 1 ? "games": "game"}!`;
 
 // create a new DOM element containing the template string and append it to the description container
-
+const infoDescriptionP = document.createElement('p');
+infoDescriptionP.innerText = Str;
+descriptionContainer.appendChild(infoDescriptionP);
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
  * Skills used: spread operator, destructuring, template literals, sort 
