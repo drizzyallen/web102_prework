@@ -5,6 +5,7 @@
 */
 
 // import the JSON data about the crowd funded games from the games.js file
+import games from './games.js';
 import GAMES_DATA from './games.js';
 
 // create a list of objects to store the data about the games using JSON.parse
@@ -88,7 +89,7 @@ gamesCard.innerHTML = `${GAMES_JSON.length}`
 
 
 /*************************************************************************************   END OF CHALLENGE 4 PROPERTY
- * Challenge 5: Add functions to filter the funded and unfunded games
+ * Challenge 5: Add functions to filter the funded and unfunded games*******************************************************CHALLENGE 5 PROPERTY
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
 */
@@ -98,10 +99,12 @@ function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have not yet met their goal
-
+    const unfundedGames = GAMES_JSON.filter(
+        (unfunded) => {return unfunded.pledged < unfunded.goal;}
+    );
 
     // use the function we previously created to add the unfunded games to the DOM
-
+    addGamesToPage(unfundedGames); 
 }
 
 // show only games that are fully funded
@@ -109,10 +112,12 @@ function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have met or exceeded their goal
-
+    const fundedGames = GAMES_JSON.filter(
+        (funded) => {return funded.pledged >= funded.goal;}
+    );
 
     // use the function we previously created to add unfunded games to the DOM
-
+    addGamesToPage(fundedGames);
 }
 
 // show all games
@@ -120,7 +125,7 @@ function showAllGames() {
     deleteChildElements(gamesContainer);
 
     // add all games from the JSON data to the DOM
-
+    addGamesToPage(GAMES_JSON);
 }
 
 // select each button in the "Our Games" section
@@ -128,8 +133,12 @@ const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
-// add event listeners with the correct functions to each button
+unfundedBtn.addEventListener('click', filterUnfundedOnly);
+fundedBtn.addEventListener('click', filterFundedOnly);
+allBtn.addEventListener('click', showAllGames);
 
+// add event listeners with the correct functions to each button
+/**********************************************************************************************END OF CHALLENGE 5 PROPERTY */
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
