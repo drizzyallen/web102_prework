@@ -19,6 +19,21 @@ body {
     margin-top: -10px;
 }
 
+.navToGames{
+    text-decoration:none;
+    color: darkblue;
+    border: 2px solid darkblue;
+    border-radius: 3px;
+    padding: 2px;
+    margin-left: 50%;
+}
+
+.navToGames:hover{
+    color:darkcyan;
+    box-shadow: 0 0 30px rgb(66, 168, 202);
+    background-color: none;
+}
+
 .stats-container {
     display: flex;
     cursor: pointer;
