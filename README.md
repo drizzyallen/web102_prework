@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='video_walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<p>file too large. Trouble pushing this gif to repo. May I drop the file somewhere else?</p>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
